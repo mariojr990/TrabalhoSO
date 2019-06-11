@@ -7,7 +7,7 @@ public class condiao_corrida_semaforo extends Thread {
     private int idThread;
     private Semaphore semaforo;
 
-    public Semaforo(int id, Semaphore semaphore) {
+    public condiao_corrida_semaforo(int id, Semaphore semaphore) {
         this.idThread = id;
         this.semaforo = semaphore;
     }
@@ -48,9 +48,9 @@ public class condiao_corrida_semaforo extends Thread {
         int numeroDePermicoes = 1;
         int numeroDeProcessos = 4;
         Semaphore semaphore = new Semaphore(numeroDePermicoes);
-        Semaforo[] processos = new Semaforo[numeroDeProcessos];
+        condiao_corrida_semaforo[] processos = new condiao_corrida_semaforo[numeroDeProcessos];
         for (int i = 0; i < numeroDeProcessos; i++) {
-            processos[i] = new Semaforo(i, semaphore);
+            processos[i] = new condiao_corrida_semaforo(i, semaphore);
             processos[i].start();
         }
     }
